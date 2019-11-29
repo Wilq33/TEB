@@ -9,6 +9,7 @@ public class TebTests {
 
     private String teb;
     private String redButton;
+    private String logo;
 
 
 
@@ -18,30 +19,29 @@ public class TebTests {
         Driver.driverF = new FirefoxDriver();
         teb = "https://www.wsb.pl/studia-i-szkolenia/studia-i-stopnia/kierunki-i-specjalnosci";
         redButton = ".cta-wrapper > a:nth-child(2)";
-        /*signup = "signup";
-        trelloError = "email-error";
-        name = "name";
+        logo = ".header_logo > img:nth-child(1)";
+/*      name = "name";
         password = "password";
         redError = "p.error-message";*/
 
     }
 
     @Test
-    public void testForm1() {
+    public void testForm1() throws InterruptedException {
 
         //Test to check if you can add wrong phone number
 
         Driver.driverF.get(teb);
         Driver.driverF.findElement(By.cssSelector(redButton)).click();
 
-        /*SignUpPage signUpPage = new SignUpPage(Driver.driverF);
-        Assert.assertTrue(signUpPage.isInitialized());
-        signUpPage.enterEmail("test@test.pl");
-
         WebDriverWait wait = new WebDriverWait(Driver.driverF, 5);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(password)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(logo)));
 
-        RegistrationPage registrationPage = new RegistrationPage(Driver.driverF);
+        SignUpPage signUpPage = new SignUpPage(Driver.driverF);
+        Assert.assertTrue(signUpPage.isInitialized());
+        signUpPage.enterData();
+
+        /*RegistrationPage registrationPage = new RegistrationPage(Driver.driverF);
         Assert.assertTrue(registrationPage.isInitialized());
         registrationPage.enterData("test@test.pl", "Test Test", "12345678");
 

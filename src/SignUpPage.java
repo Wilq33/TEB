@@ -20,13 +20,10 @@ public class SignUpPage extends PageObject {
     @FindBy(id = "select_12")
     private WebElement subject;
 
-    @FindBy(id = "select_option_31")
+    @FindBy(id = "select_option_34")
     private WebElement academy;
 
-    @FindBy(id = "#select_8")
-    private WebElement formOfStudy;
-
-    @FindBy(id = "#select_8")
+    @FindBy(css = ".button")
     private WebElement fillRecruitmentForm;
 
 
@@ -38,9 +35,14 @@ public class SignUpPage extends PageObject {
         return city.isDisplayed();
     }
 
-    public void enterEmail(String email) {
-  /*      this.email.clear();
-        this.email.sendKeys(email);
-        this.signup.click();*/
+    public void enterData() {
+        this.city.click();
+        this.poznan.click();
+        this.level.click();
+        this.postgraduate.click();
+        this.subject.click();
+        this.academy.click();
+        this.fillRecruitmentForm.click();
+
     }
 }
