@@ -32,6 +32,19 @@ public class RegistrationPage extends PageObject {
     @FindBy(id = "street")
     private WebElement street;
 
+    @FindBy(id = "streetNumber")
+    private WebElement streetnumber;
+
+    @FindBy(id = "postalCode")
+    private WebElement postcode;
+
+    @FindBy(id = "city")
+    private WebElement city;
+
+    @FindBy(css = "button.button:nth-child(2)")
+    private WebElement redbutton;
+
+
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }
@@ -40,7 +53,7 @@ public class RegistrationPage extends PageObject {
         return email.isDisplayed();
     }
 
-    public void enterData(String name, String surname, String email, String pesel, String birthplace, String phonenumber, String street) throws InterruptedException {
+    public void enterData(String name, String surname, String email, String pesel, String birthplace, String phonenumber, String street, String streetnumber, String postcode, String city) throws InterruptedException {
 
         this.name.clear();
         this.name.sendKeys(name);
@@ -50,20 +63,21 @@ public class RegistrationPage extends PageObject {
         this.email.sendKeys(email);
         this.pesel.clear();
         this.pesel.sendKeys(pesel);
-/*        this.countryOfOrigin.click();
-        this.poland.click();*/
+        this.countryOfOrigin.click();
+        this.poland.click();
         this.birthplace.clear();
         this.birthplace.sendKeys(birthplace);
         this.phonenumber.clear();
         this.phonenumber.sendKeys(phonenumber);
         this.street.clear();
         this.street.sendKeys(street);
-
-
-/*        this.name.clear();
-        this.name.sendKeys(name);
-        this.password.clear();
-        this.password.sendKeys(p);*/
+        this.streetnumber.clear();
+        this.streetnumber.sendKeys(streetnumber);
+        this.postcode.clear();
+        this.postcode.sendKeys(postcode);
+        this.city.clear();
+        this.city.sendKeys(city);
+        this.redbutton.click();
 
     }
 }

@@ -9,9 +9,7 @@ public class TebTests {
 
     private String teb;
     private String firstName;
-    private String redButton;
-    private String logo;
-
+    private String redError;
 
 
     @Before
@@ -20,7 +18,7 @@ public class TebTests {
         Driver.driverF = new FirefoxDriver();
         teb = "https://www.wsb.pl/rekrutacja/krok1";
         firstName = "nameInput";
-/*        redError = "p.error-message";*/
+        redError = "ul.error-message:nth-child(3) > li:nth-child(1)";
 
     }
 
@@ -40,12 +38,12 @@ public class TebTests {
 
         RegistrationPage registrationPage = new RegistrationPage(Driver.driverF);
         Assert.assertTrue(registrationPage.isInitialized());
-        registrationPage.enterData("test", "test", "rafalzaleski08@wp.pl", "90100870667", "test", "1234", "1000-lecia");
+        registrationPage.enterData("test", "test", "rafalzaleski08@wp.pl", "90100870667", "test", "1234", "1000-lecia", "3a", "65010", "Zielona Góra");
 
-/*        String expectedMessage = "E-mail jest już w użyciu przez niepotwierdzone konto. Możesz zalogować się lub odzyskać hasło, by je zresetować.";
+        String expectedMessage = "Telefon powinien zawierać przynajmniej 9 cyfr";
         String errorMessage = Driver.driverF.findElement(By.cssSelector(redError)).getText();
         System.out.println(errorMessage);
-        Assert.assertTrue("Your error message", errorMessage.contains(expectedMessage));*/
+        Assert.assertTrue("Your error message", errorMessage.contains(expectedMessage));
 
     }
 
