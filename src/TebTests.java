@@ -23,7 +23,7 @@ public class TebTests {
     }
 
     @Test
-    public void testForm1() throws InterruptedException {
+    public void testForm() throws InterruptedException {
 
         //Test to check if you can add wrong phone number
 
