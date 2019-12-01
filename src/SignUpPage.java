@@ -41,7 +41,7 @@ public class SignUpPage extends PageObject {
         return city.isDisplayed();
     }
 
-    public void enterData() throws InterruptedException {
+    public void enterData() {
 
         this.city.click();
         this.poznan.click();
