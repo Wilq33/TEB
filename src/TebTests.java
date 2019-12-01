@@ -17,9 +17,7 @@ public class TebTests {
     public void setUp() {
 
         Driver.driverF = new FirefoxDriver();
-        teb = "https://www.wsb.pl/studia-i-szkolenia/studia-i-stopnia/kierunki-i-specjalnosci";
-        redButton = ".cta-wrapper > a:nth-child(2)";
-        logo = ".header_logo > img:nth-child(1)";
+        teb = "https://www.wsb.pl/rekrutacja/krok1";
 /*      name = "name";
         password = "password";
         redError = "p.error-message";*/
@@ -32,10 +30,6 @@ public class TebTests {
         //Test to check if you can add wrong phone number
 
         Driver.driverF.get(teb);
-        Driver.driverF.findElement(By.cssSelector(redButton)).click();
-
-        WebDriverWait wait = new WebDriverWait(Driver.driverF, 5);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(logo)));
 
         SignUpPage signUpPage = new SignUpPage(Driver.driverF);
         Assert.assertTrue(signUpPage.isInitialized());
