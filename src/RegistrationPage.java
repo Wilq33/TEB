@@ -44,7 +44,6 @@ public class RegistrationPage extends PageObject {
     @FindBy(css = "button.button:nth-child(2)")
     private WebElement redbutton;
 
-
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }
@@ -53,7 +52,7 @@ public class RegistrationPage extends PageObject {
         return email.isDisplayed();
     }
 
-    public void enterData(String name, String surname, String email, String pesel, String birthplace, String phonenumber, String street, String streetnumber, String postcode, String city) throws InterruptedException {
+    public void enterData(String name, String surname, String email, String pesel, String birthplace, String phonenumber, String street, String streetnumber, String postcode, String city) {
 
         this.name.clear();
         this.name.sendKeys(name);
