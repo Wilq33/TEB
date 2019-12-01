@@ -8,47 +8,42 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TebTests {
 
     private String teb;
-    private String redButton;
-
+    private String firstName;
+    private String redError;
 
 
     @Before
     public void setUp() {
 
         Driver.driverF = new FirefoxDriver();
-        teb = "https://www.wsb.pl/studia-i-szkolenia/studia-i-stopnia/kierunki-i-specjalnosci";
-        redButton = ".cta-wrapper > a:nth-child(2)";
-        /*signup = "signup";
-        trelloError = "email-error";
-        name = "name";
-        password = "password";
-        redError = "p.error-message";*/
+        teb = "https://www.wsb.pl/rekrutacja/krok1";
+        firstName = "nameInput";
+        redError = "ul.error-message:nth-child(3) > li:nth-child(1)";
 
     }
 
     @Test
-    public void testForm1() {
+    public void testForm1() throws InterruptedException {
 
         //Test to check if you can add wrong phone number
 
         Driver.driverF.get(teb);
-        Driver.driverF.findElement(By.cssSelector(redButton)).click();
 
-        /*SignUpPage signUpPage = new SignUpPage(Driver.driverF);
+        SignUpPage signUpPage = new SignUpPage(Driver.driverF);
         Assert.assertTrue(signUpPage.isInitialized());
-        signUpPage.enterEmail("test@test.pl");
+        signUpPage.enterData();
 
         WebDriverWait wait = new WebDriverWait(Driver.driverF, 5);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(password)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(firstName)));
 
         RegistrationPage registrationPage = new RegistrationPage(Driver.driverF);
         Assert.assertTrue(registrationPage.isInitialized());
-        registrationPage.enterData("test@test.pl", "Test Test", "12345678");
+        registrationPage.enterData("test", "test", "rafalzaleski08@wp.pl", "90100870667", "test", "1234", "1000-lecia", "3a", "65010", "Zielona Góra");
 
-        String expectedMessage = "E-mail jest już w użyciu przez niepotwierdzone konto. Możesz zalogować się lub odzyskać hasło, by je zresetować.";
+        String expectedMessage = "Telefon powinien zawierać przynajmniej 9 cyfr";
         String errorMessage = Driver.driverF.findElement(By.cssSelector(redError)).getText();
         System.out.println(errorMessage);
-        Assert.assertTrue("Your error message", errorMessage.contains(expectedMessage));*/
+        Assert.assertTrue("Your error message", errorMessage.contains(expectedMessage));
 
     }
 

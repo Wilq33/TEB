@@ -11,22 +11,25 @@ public class SignUpPage extends PageObject {
     @FindBy(id = "select_option_25")
     private WebElement poznan;
 
+    @FindBy(id = "select_10")
+    private WebElement term;
+
+    @FindBy(id = "select_option_29")
+    private WebElement march;
+
     @FindBy(id = "select_12")
     private WebElement level;
 
-    @FindBy(id = "select_option_31")
+    @FindBy(id = "select_option_32")
     private WebElement postgraduate;
 
-    @FindBy(id = "select_12")
+    @FindBy(id = "select_14")
     private WebElement subject;
 
-    @FindBy(id = "select_option_31")
-    private WebElement academy;
+    @FindBy(id = "select_option_37")
+    private WebElement inspector;
 
-    @FindBy(id = "#select_8")
-    private WebElement formOfStudy;
-
-    @FindBy(id = "#select_8")
+    @FindBy(css = ".button")
     private WebElement fillRecruitmentForm;
 
 
@@ -38,9 +41,17 @@ public class SignUpPage extends PageObject {
         return city.isDisplayed();
     }
 
-    public void enterEmail(String email) {
-  /*      this.email.clear();
-        this.email.sendKeys(email);
-        this.signup.click();*/
+    public void enterData() {
+
+        this.city.click();
+        this.poznan.click();
+        this.term.click();
+        this.march.click();
+        this.level.click();
+        this.postgraduate.click();
+        this.subject.click();
+        this.inspector.click();
+        this.fillRecruitmentForm.click();
+
     }
 }
